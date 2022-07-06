@@ -1,5 +1,5 @@
 """
-BEMOJI 模型实现情感分析
+BEMOJI for glue
 :author: Qizhi Li
 """
 import os
@@ -24,14 +24,17 @@ from models import BEMOJI_GLUE
 
 def get_data_iter(a, y, batch_size, b=None):
     """
-    获得一个batch中的数据
-    :param x: list
-    :param emoji: list
+    package batch
+    :param a: list
     :param y: list
     :param batch_size: int
-    :return batch_X: list
+    :param b: list or None
+            if has two sentence sequences, b is a list, else None
+            default None
+    :return batch_a: list
+    :return batch_b: list
+            if b is a list
     :return batch_y: list
-    :return batch_emoji: list
     :return batch_count: int
     """
     batch_count = int(len(a) / batch_size)
@@ -52,57 +55,33 @@ def get_data_iter(a, y, batch_size, b=None):
 
 
 def acc(pred, label):
-    """
-    获得准确率
-    :param pred:
-    :param label:
-    :return:
-    """
     return accuracy_score(label, pred)
 
 
 def f1(pred, label):
-    """
-    获得 F1
-    :param pred:
-    :param label:
-    :return:
-    """
     return f1_score(label, pred, average='macro')
 
 
 def MCC(pred, label):
-    """
-    获得MCC
-    :param pred:
-    :param label:
-    :return:
-    """
     return matthews_corrcoef(label, pred)
 
 
 def Pearsonr(pred, label):
-    """
-    皮尔逊相关系数
-    :param pred:
-    :param label:
-    :return:
-    """
     return pearsonr(pred, label)[0]
 
 
 def evaluate(model, batch_count, batch_X, batch_y, device, args, batch_b=None):
     """
-    Evaluating model on dev and test, and outputting loss, accuracy and macro-F1
+    Evaluating model on dev and test
     :param model: Object
-    :return: float
-            total loss
-    :return macro_P: float
-            total macro_P
-    :return macro_R: float
-            total macro_R
-    :return macro_F1: float
-            total macro-F1
+    :param batch_count: int
+    :param batch_X: list
+    :param batch_y: list
+    :param device: 'cuda' or 'cpu'
+    :param args: Object
+    :param batch_b: list or None
+            if the dataset has two sentence sequences, batch_b is a list, else None
+            default: None
     """
     model.eval()
     loss_total = 0
@@ -322,10 +301,6 @@ def train(args, device):
     else:
         loss = nn.MSELoss()
     optimizer = AdamW(model.parameters(), lr=config.lr, weight_decay=config.weight_decay)
-    warmup_step = len(train_batch_X) if train_batch_X else len(train_batch_a)
-    # schedule = get_cosine_schedule_with_warmup(optimizer,
-    #                                            num_warmup_steps=warmup_step,
-    #                                            num_training_steps=config.epochs * warmup_step)
 
     require_improvement = early_stop
     dev_best_loss = float('inf')
