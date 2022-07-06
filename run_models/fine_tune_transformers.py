@@ -1,5 +1,5 @@
 """
-微调传统 Transformer 的模型
+Transformers for pre-training
 :author: Qizhi Li
 """
 import os
@@ -18,15 +18,18 @@ from models import bert_mlm
 
 def load_data(mode):
     """
-    加载预训练数据集
+    load pre-training data
+    :param mode: str
+            'pretrain_chinese': load Chinese data
+            'pretrain_english': load English data
     :return:
     """
     texts = []
 
-    if mode == 'fine_tune_chinese':
+    if mode == 'pretrain_chinese':
         with open(fp.pre_train_chinese_data, encoding='utf-8') as f:
             content = f.readlines()
-    elif mode == 'fine_tune_english':
+    elif mode == 'pretrain_english':
         with open(fp.pre_train_english_data, encoding='utf-8') as f:
             content = f.readlines()
 
@@ -39,11 +42,11 @@ def load_data(mode):
 
 def get_data_iter(batch_size, mode):
     """
-    分 batch 获得数据
+    package batch
     :param batch_size: int
     :param mode: str
-            'fine_tune_chinese': 加载中文数据集
-            'fine_tune_english': 加载英文数据集
+            'pretrain_chinese': load Chinese data
+            'pretrain_english': load English data
     :return inputs_batches: list
     :return batch_count: int
     """
@@ -58,16 +61,16 @@ def get_data_iter(batch_size, mode):
 
 
 def train(args, device):
-    # 判断是否有 checkpoint, 防止系统中断而需要重新训练
+    # Determine if there is a checkpoint
     checkpoint_epoch = 0
     files = os.listdir(fp.pre_train_parameters)
     for file in files:
-        if args.mode == 'fine_tune_chinese':
+        if args.mode == 'pretrain_chinese':
             if args.model in file and 'github' not in file:
                 epoch_tmp = int(file.rstrip('.bin').split('_')[-1])
                 if epoch_tmp > checkpoint_epoch:
                     checkpoint_epoch = epoch_tmp
-        elif args.mode == 'fine_tune_english':
+        elif args.mode == 'pretrain_english':
             if args.model in file and 'github' in file:
                 epoch_tmp = int(file.rstrip('.bin').split('_')[-1])
                 if epoch_tmp > checkpoint_epoch:
@@ -75,7 +78,7 @@ def train(args, device):
 
     config = bert_mlm.FineTuneConfig()
     config.mlm_config()
-    if args.mode == 'fine_tune_chinese':
+    if args.mode == 'pretrain_chinese':
         if args.model == 'BERT_base':
             from_path = '../static_data/bert-base-chinese'
         elif args.model == 'RoBERTa_base':
@@ -90,7 +93,7 @@ def train(args, device):
                                 weight_decay=1e-4,
                                 from_path=from_path,
                                 device=device)
-    elif args.mode == 'fine_tune_english':
+    elif args.mode == 'pretrain_english':
         if args.model == 'BERT_base':
             from_path = '../static_data/bert-base-uncased'
         elif args.model == 'BERT_large':
@@ -110,14 +113,14 @@ def train(args, device):
 
     input_batches, batch_count = get_data_iter(config.batch_size, args.mode)
 
-    # 加载存储点, 如果有存储文件的话
+    # if there has checkpoint, load the checkpoint parameters
     if checkpoint_epoch > 0:
-        if args.mode == 'fine_tune_chinese':
+        if args.mode == 'pretrain_chinese':
             parameter_path = os.path.join(fp.pre_train_parameters,
                                           '{}_ep_{}.bin'.format(args.model,
                                                                 checkpoint_epoch))
             print('loaded pretrained parameters')
-        elif args.mode == 'fine_tune_english':
+        elif args.mode == 'pretrain_english':
             parameter_path = os.path.join(fp.pre_train_parameters,
                                           '{}_github_ep_{}.bin'.format(args.model,
                                                                        checkpoint_epoch))
@@ -166,12 +169,12 @@ def train(args, device):
             epoch + 1, loss_sum / batch_count, end - start))
         total_time += end - start
 
-        if args.mode == 'fine_tune_chinese':
+        if args.mode == 'pretrain_chinese':
             torch.save(pretrain_model.context_bert.state_dict(),
                        os.path.join(fp.pre_train_parameters,
                                     '{}_ep_{}.bin'.format(args.model,
                                                           epoch + 1)))
-        elif args.mode == 'fine_tune_english':
+        elif args.mode == 'pretrain_english':
             torch.save(pretrain_model.context_bert.state_dict(),
                        os.path.join(fp.pre_train_parameters,
                                     '{}_github_ep_{}.bin'.format(args.model,
@@ -188,8 +191,8 @@ parser.add_argument('-m',
                     help='BERT_base, BERT_large, RoBERTa_base, RoBERTa_large, '
                          'DistilBert_base. Note: only english dataset has BERT_large')
 parser.add_argument('--mode',
-                    help='fine_tune_english: fine tune English dataset,'
-                         'fine_tune_chinese: fine tune Chinese dataset',
-                    default='fine_tune_chinese')
+                    help='pretrain_english: pre-training English dataset,'
+                         'pretrain_chinese: pre-training Chinese dataset',
+                    default='pretrain_chinese')
 args = parser.parse_args()
 train(args, device)
