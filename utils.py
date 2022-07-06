@@ -1,5 +1,5 @@
 """
-工具箱
+Utils
 :author: Qizhi Li
 """
 import json
@@ -8,16 +8,14 @@ import pickle
 
 def read_file(type_, path):
     """
-    读取文件, 文件类型:
+    Reading file, the types of file contains:
         1. pickle
         2. json
         3. txt
     :param type_: str
-            文件类型
+            'pkl', 'json', 'txt'
     :param path: str
-            文件路径
     :return data: Object
-            文件中的数据
     """
     if type_ == 'pkl':
         with open(path, 'rb') as f:
@@ -33,16 +31,14 @@ def read_file(type_, path):
 
 def write_file(type_, path, data):
     """
-    写入文件, 文件类型:
+    Writing file, the types of file contains:
         1. pickle
         2. json
         3. txt
     :param type_: str
-            文件类型
+            'pkl', 'json', 'txt'
     :param path: str
-            文件路径
     :param data: Object
-            需要写入的文件
     """
     if type_ == 'pkl':
         with open(path, 'wb') as f:
@@ -51,6 +47,5 @@ def write_file(type_, path, data):
         with open(path, 'w') as f:
             json.dump(data, f)
     elif type_ == 'txt_w':
-        # 写入txt
         with open(path, 'w') as f:
             f.writelines(data)
