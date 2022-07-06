@@ -1,3 +1,7 @@
+"""
+BEMOJI for downstream tasks without emoji
+:author: Qizhi Li
+"""
 import os
 import sys
 import pandas as pd
@@ -42,9 +46,6 @@ class PreprocessDataset:
             sentences = doc.getElementsByTagName('Sentence')
             doc_id = doc.getAttribute('ID')
             for sentence in sentences:
-                # X: 文本数据, y: 标签 (0: neutral, 1: positive, 2: negative, 3: None),
-                # words: list, 隐式情感词,
-                # position: dict: {word: [pos]}, 隐式情感词语在句子中的位置
 
                 if data_type != 'test':
 
