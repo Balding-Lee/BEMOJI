@@ -1,5 +1,5 @@
 """
-预训练 DeepMoji
+DeepMoji for pre-training
 :author: Qizhi Li
 """
 import argparse
@@ -26,7 +26,7 @@ from models import DeepMoji
 
 def load_data(args, emoji2def):
     """
-    加载数据集
+    :param args: Object
     :param emoji2def: dict
             {emoji: definition}
     :return texts: list
@@ -43,7 +43,7 @@ def load_data(args, emoji2def):
             text, emojis_in_text = split_data[0], split_data[1]
 
             emojis_set = set(emojis_in_text.split(','))
-            # 如果有 n 个 emoji, 则将文本拆为 n 个
+            # If one sentence has multiple emojis, convert it into one sentence with one emoji
             for emoji in emojis_set:
                 if emoji2def.__contains__(emoji):
                     texts.append(text)
@@ -63,8 +63,8 @@ def load_data(args, emoji2def):
 
 def get_wordset_and_lables(args, emojis):
     """
-    获得词集合以及标签
-    :param texts: list
+    Obtaining word set and labels
+    :param args: Object
     :param emojis: list
     :return word_set: set
     :return labels: list
@@ -86,38 +86,9 @@ def get_wordset_and_lables(args, emojis):
     return word_set, labels
 
 
-# def get_wordset_and_lables(args, texts, emojis):
-#     """
-#     获得词集合以及标签
-#     :param texts: list
-#     :param emojis: list
-#     :return word_set: set
-#     :return labels: list
-#     """
-#     word_set = set()
-#     pper = pyprind.ProgPercent(len(texts))
-#     for text in texts:
-#         if args.mode == 'fine_tune_chinese':
-#             word_set = word_set.union(list(text))
-#         else:
-#             word_set = word_set.union(text.split(' '))
-#         pper.update()
-#
-#     if args.mode == 'fine_tune_chinese':
-#         emoji2id = utils.read_file('json', os.path.join(fp.deepmoji_vocab, 'emoji2id.json'))
-#     else:
-#         emoji2id = utils.read_file('json', os.path.join(fp.deepmoji_vocab, 'github_emoji2id.json'))
-#     labels = []
-#
-#     for emoji in emojis:
-#         labels.append(emoji2id[emoji])
-#
-#     return word_set, labels
-
-
 def get_all_words_embed(w2v_embed, words_set):
     """
-    获得嵌入层的词向量
+    Obtaining word embedding
     :param w2v_embed: Object
     :param words_set: set
     :return embed: FloatTensor
@@ -135,7 +106,7 @@ def get_all_words_embed(w2v_embed, words_set):
         i += 1
         pper.update()
 
-    # '<PAD>' 的向量设置为全0
+    # '<PAD>' embedding is all 0
     embed = torch.cat((embed, torch.zeros(1, embed.shape[1])))
 
     return embed
@@ -143,11 +114,12 @@ def get_all_words_embed(w2v_embed, words_set):
 
 def change_sentence_to_ids(args, dataset, word2id):
     """
-    将文本转换为 id
+    Convert sentence into ids
+    :param args: Object
     :param dataset: list
     :param word2id: dict
             {word: id}
-    :return:
+    :return: sentences_ids: list
     """
     sentences_ids = []
     for sentence in dataset:
@@ -165,12 +137,11 @@ def change_sentence_to_ids(args, dataset, word2id):
 
 def padding_or_truncate(sentences_ids, padding, max_seq_length):
     """
-    填充或者截断
     :param sentences_ids: list
     :param padding: int
-            '<PAD>' 的 id
+            The id of '<PAD>'
     :param max_seq_length: int
-    :return:
+    :return X: list
     """
     X = []
 
@@ -178,7 +149,7 @@ def padding_or_truncate(sentences_ids, padding, max_seq_length):
         if len(sentence) > max_seq_length:
             X.append(sentence[: max_seq_length])
         else:
-            pt = sentence.copy()  # 需要拷贝一下, 不然会影响到原本的数据
+            pt = sentence.copy()
             pt.extend([padding] * (max_seq_length - len(sentence)))
             X.append(pt)
 
@@ -187,11 +158,13 @@ def padding_or_truncate(sentences_ids, padding, max_seq_length):
 
 def get_data_iter(args, texts, labels, config):
     """
-    获得 DataLoader
+    Package batch
+    :param args: Object
     :param texts: list
     :param labels: list
     :param config: Object
-    :return:
+    :return train_iter: DataLoader
+    :return dev_iter: DataLoader
     """
     if args.mode == 'fine_tune_chinese':
         word2id = utils.read_file('json', os.path.join(fp.deepmoji_vocab, 'word2id.json'))
@@ -256,12 +229,6 @@ def evaluate(model, data_iter, device):
 
 
 def train(args, device):
-    # save_path = os.path.join(fp.pre_train_parameters, 'deepmoji.bin')
-
-    # emoji2def = pd.read_csv(fp.weibo_emoji2def)
-    # emoji_defs = {}
-    # for _, line in emoji2def.iterrows():
-    #     emoji_defs[line['微博表情']] = line['表情定义']
 
     if args.mode == 'fine_tune_chinese':
         emoji2def = pd.read_csv(fp.weibo_emoji2def)
@@ -276,12 +243,10 @@ def train(args, device):
         for _, line in emoji2def.iterrows():
             emoji_defs[line['emoji']] = line['definition']
 
-        # w2v_embed = utils.read_file('pkl', fp.english_word2vec)
         w2v_embed = KeyedVectors.load_word2vec_format(fp.english_word2vec, binary=True)
 
     texts, emojis = load_data(args, emoji_defs)
 
-    # words_set, labels = get_wordset_and_lables(args, texts, emojis)
     words_set, labels = get_wordset_and_lables(args, emojis)
     embed = get_all_words_embed(w2v_embed, words_set)
     config = DeepMoji.Config(num_classes=len(emoji_defs))
