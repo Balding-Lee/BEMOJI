@@ -1,3 +1,7 @@
+"""
+Transformer models for downstream tasks
+:author: Qizhi Li
+"""
 import os
 import torch
 import torch.nn as nn
