@@ -1,5 +1,5 @@
 """
-运行BERT
+Transformers for fine-tuning
 :author: Qizhi Li
 """
 import os
@@ -23,13 +23,9 @@ from static_data import file_path as fp
 
 def load_data(file_path):
     """
-    加载数据
     :param file_path: str
-            文件路径
     :return x: list
-            文本数据
     :return y: list
-            真实标签
     """
     csv_data = pd.read_csv(file_path)
 
@@ -39,39 +35,14 @@ def load_data(file_path):
     return x, y
 
 
-
-
-
-# def get_data_iter(x, y, batch_size):
-#     """
-#     获得一个batch中的数据
-#     :param x: list
-#     :param y: list
-#     :param batch_size: int
-#     :return batch_X: list
-#     :return batch_y: list
-#     :return batch_emoji: list
-#     :return batch_count: int
-#     """
-#     batch_count = int(len(x) / batch_size)
-#     batch_X, batch_y = [], []
-#
-#     for i in range(batch_count):
-#         batch_X.append(x[i * batch_size: (i + 1) * batch_size])
-#         batch_y.append(y[i * batch_size: (i + 1) * batch_size])
-#
-#     return batch_X, batch_y, batch_count
-
-
 def get_data_iter(x, y, batch_size):
     """
-    获得一个batch中的数据
+    Package batch
     :param x: list
     :param y: list
     :param batch_size: int
     :return batch_X: list
     :return batch_y: list
-    :return batch_emoji: list
     :return batch_count: int
     """
     if len(x) % batch_size != 0:
@@ -147,17 +118,6 @@ def train(args, device):
         config = bert.Config(args, 2)
 
     else:
-        # from_path = os.path.join(fp.english_data, args.dataset)
-        # early_stop = 512
-        # if args.dataset == 'CodeReview':
-        #     config = bert.Config(args, 2, max_seq_length=64)
-        # elif args.dataset == 'JavaLib':
-        #     config = bert.Config(args, 3, max_seq_length=32, batch_size=32)
-        # elif args.dataset == 'Jira':
-        #     config = bert.Config(args, 3, max_seq_length=64)
-        # elif args.dataset == 'StackOverflow':
-        #     config = bert.Config(args, 3, max_seq_length=96)
-
         from_path = fp.github_data
         early_stop = 1024
         config = bert.Config(args, 3, max_seq_length=128)
@@ -209,10 +169,6 @@ def train(args, device):
             schedule.step()
 
             if (n + 1) % 100 == 0:
-                # pred = torch.max(outputs.data, 1)[1].cpu().numpy()
-                # acc = accuracy_score(labels.detach().cpu().numpy(), pred)
-                # f1 = f1_score(labels.detach().cpu().numpy(), pred, average='micro')
-
                 dev_loss, dev_acc, dev_macro_P, dev_macro_R, dev_macro_f1 = evaluate(model,
                                                                                      dev_batch_count,
                                                                                      dev_batch_X,
