@@ -1,3 +1,7 @@
+"""
+case study
+:author: Qizhi Li
+"""
 import argparse
 import sys
 import os
