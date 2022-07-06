@@ -23,7 +23,6 @@ class FineTuneConfig:
                    prob_replace_mask=0.8, prob_replace_rand=0.1, prob_keep_ori=0.1):
         """
         MLM settings
-        :param lm_probability:
         :param mlm_probability: the total number of masked tokens
         :param special_tokens_mask: specital token
         :param prob_replace_mask: the ratio of token being replaced by [MASK]
@@ -59,11 +58,6 @@ class BEMOJI(nn.Module):
 
         pretrained_weight, mlm_class, emoji_class = None, None, None
         tokenizer_class = BertTokenizer
-
-        # if args.dataset == 'english':
-        #     pretrained_weight = self.config.bert_english_path
-        # elif args.dataset == 'chinese':
-        #     pretrained_weight = self.config.bert_chinese_path
 
         mlm_class, emoji_class = BertForMaskedLM, BertModel
 
