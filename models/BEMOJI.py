@@ -22,7 +22,7 @@ class FineTuneConfig:
     def mlm_config(self, mlm_probability=0.15, special_tokens_mask=None,
                    prob_replace_mask=0.8, prob_replace_rand=0.1, prob_keep_ori=0.1):
         """
-        MLM 的设置
+        MLM settings
         :param lm_probability:
         :param mlm_probability: the total number of masked tokens
         :param special_tokens_mask: specital token
