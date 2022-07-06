@@ -1,5 +1,5 @@
 """
-BEMOJI 模型实现情感分析
+BEMOJI for fine-tuning
 :author: Qizhi Li
 """
 import os
@@ -23,15 +23,14 @@ from models import BEMOJI_CLS
 
 def load_data(file_path):
     """
-    加载数据
+    load data
     :param file_path: str
-            文件路径
     :return x: list
-            文本数据
+            input texts
     :return emoji: list
-            表情符号
+            input emojis
     :return y: list
-            真实标签
+            true labels
     """
     csv_data = pd.read_csv(file_path)
 
@@ -44,13 +43,14 @@ def load_data(file_path):
 
 def load_english_data(file_path):
     """
-    加载数据
+    load English data
     :param file_path: str
-            文件路径
     :return x: list
-            文本数据
+            input texts
+    :return emoji: list
+            input emojis
     :return y: list
-            真实标签
+            true labels
     """
     csv_data = pd.read_csv(file_path)
 
@@ -62,7 +62,7 @@ def load_english_data(file_path):
 
 def get_data_iter(x, emoji, y, batch_size):
     """
-    获得一个batch中的数据
+    package batch
     :param x: list
     :param emoji: list
     :param y: list
@@ -85,7 +85,7 @@ def get_data_iter(x, emoji, y, batch_size):
 
 def get_english_data_iter(x, y, batch_size):
     """
-    获得一个batch中的数据
+    package english batch
     :param x: list
     :param y: list
     :param batch_size: int
@@ -121,7 +121,7 @@ def get_english_data_iter(x, y, batch_size):
 
 def get_emoji_definitions(dataset, emojis, emoji2def):
     """
-    将 emoji 变为定义
+    covert emoji to emoji description
     :param dataset: str
     :param emojis: list
             ['emoji11', 'emoji21, emoji22', ...]
@@ -149,6 +149,15 @@ def evaluate(model, batch_count, batch_X, batch_y, device, args, batch_emoji=Non
     """
     Evaluating model on dev and test, and outputting loss, accuracy and macro-F1
     :param model: Object
+    :param batch_count: int
+    :param batch_X: list
+    :param batch_y: list
+    :param device: 'cuda' or 'cpu'
+    :param args: Object
+    :param batch_emoji: list or None
+            default: None
+    :param emoji2def: dict or None
+            default: None
     :return: float
             total loss
     :return macro_P: float
@@ -167,14 +176,6 @@ def evaluate(model, batch_count, batch_X, batch_y, device, args, batch_emoji=Non
         for i in range(batch_count):
             input_seqs = batch_X[i]
             labels = torch.tensor(batch_y[i]).to(device)
-
-            # if args.dataset == 'chinese':
-            #     emojis = batch_emoji[i]
-            #     input_emojis = get_emoji_definitions(args.dataset, emojis, emoji2def)
-            #     outputs = model(input_seqs, input_emojis)
-            #
-            # else:
-            #     outputs = model(input_seqs)
 
             emojis = batch_emoji[i]
             input_emojis = get_emoji_definitions(args.dataset, emojis, emoji2def)
@@ -206,13 +207,6 @@ def train(args, device):
         for _, line in emoji2def_csv.iterrows():
             emoji2def[line['微博表情']] = line['表情定义']
 
-        # train_x, train_emoji, train_y = load_data(
-        #     os.path.join(fp.weibo_data, 'train.csv'))
-        # dev_x, dev_emoji, dev_y = load_data(
-        #     os.path.join(fp.weibo_data, 'dev.csv'))
-        # test_x, test_emoji, test_y = load_data(
-        #     os.path.join(fp.weibo_data, 'test.csv'))
-
         config = BEMOJI_CLS.Config(
             args,
             output_size=2,
@@ -220,18 +214,6 @@ def train(args, device):
             parameter_path=fp.pre_train_parameters
         )
 
-        # train_batch_X, train_batch_y, train_batch_emoji, train_batch_count = get_data_iter(train_x,
-        #                                                                                    train_emoji,
-        #                                                                                    train_y,
-        #                                                                                    config.batch_size)
-        # dev_batch_X, dev_batch_y, dev_batch_emoji, dev_batch_count = get_data_iter(dev_x,
-        #                                                                            dev_emoji,
-        #                                                                            dev_y,
-        #                                                                            config.batch_size)
-        # test_batch_X, test_batch_y, test_batch_emoji, test_batch_count = get_data_iter(test_x,
-        #                                                                                test_emoji,
-        #                                                                                test_y,
-        #                                                                                config.batch_size)
     else:
         early_stop = 1024
         save_path = os.path.join(fp.model_parameters,
@@ -243,16 +225,6 @@ def train(args, device):
         for _, line in emoji2def_csv.iterrows():
             emoji2def[line['emoji']] = line['definition']
 
-        # train_x, train_y = load_english_data(
-        #     os.path.join(fp.english_data, '{}/train.csv'.format(args.dataset))
-        # )
-        # dev_x, dev_y = load_english_data(
-        #     os.path.join(fp.english_data, '{}/dev.csv'.format(args.dataset))
-        # )
-        # test_x, test_y = load_english_data(
-        #     os.path.join(fp.english_data, '{}/test.csv'.format(args.dataset))
-        # )
-
         config = BEMOJI_CLS.Config(
             args,
             output_size=2,
@@ -261,59 +233,6 @@ def train(args, device):
             texts_max_length=128,
             batch_size=32
         )
-
-        # if args.dataset == 'CodeReview':
-        #     config = BEMOJI_CLS.Config(
-        #         args,
-        #         output_size=2,
-        #         fine_tune_epoch=args.fine_tune_epoch,
-        #         parameter_path=fp.pre_train_parameters,
-        #         texts_max_length=64
-        #     )
-        # elif args.dataset == 'JavaLib':
-        #     config = BEMOJI_CLS.Config(
-        #         args,
-        #         output_size=3,
-        #         fine_tune_epoch=args.fine_tune_epoch,
-        #         parameter_path=fp.pre_train_parameters,
-        #         texts_max_length=32,
-        #         batch_size=32
-        #     )
-        # elif args.dataset == 'Jira':
-        #     config = BEMOJI_CLS.Config(
-        #         args,
-        #         output_size=3,
-        #         fine_tune_epoch=args.fine_tune_epoch,
-        #         parameter_path=fp.pre_train_parameters,
-        #         texts_max_length=64
-        #     )
-        # elif args.dataset == 'StackOverflow':
-        #     config = BEMOJI_CLS.Config(
-        #         args,
-        #         output_size=3,
-        #         fine_tune_epoch=args.fine_tune_epoch,
-        #         parameter_path=fp.pre_train_parameters,
-        #         texts_max_length=96
-        #     )
-
-        # train_batch_X, train_batch_y, train_batch_count = get_english_data_iter(train_x,
-        #                                                                         train_y,
-        #                                                                         config.batch_size)
-        # dev_batch_X, dev_batch_y, dev_batch_count = get_english_data_iter(dev_x,
-        #                                                                   dev_y,
-        #                                                                   config.batch_size)
-        # test_batch_X, test_batch_y, test_batch_count = get_english_data_iter(test_x,
-        #                                                                      test_y,
-        #                                                                      config.batch_size)
-
-    # elif args.dataset == 'english':
-    #     save_path = os.path.join(fp.model_parameters, 'BEMOJI_english_base_parameters.bin')
-    #     emoji2def_csv = pd.read_csv(fp.github_emoji2def)
-    #     emoji2def = {}
-    #     for _, line in emoji2def_csv.iterrows():
-    #         emoji2def[line['emoji']] = line['definition']
-    # else:
-    #     raise ValueError('dataset must be \'chinese\' or \'english\'')
 
     train_x, train_emoji, train_y = load_data(
         os.path.join(from_path, 'train.csv'))
@@ -358,13 +277,6 @@ def train(args, device):
             input_seqs = train_batch_X[i]
             labels = torch.tensor(train_batch_y[i]).to(device)
 
-            # if args.dataset == 'chinese':
-            #     emojis = train_batch_emoji[i]
-            #     input_emojis = get_emoji_definitions(emojis, emoji2def)
-            #     y_hat = model(input_seqs, input_emojis)
-            # else:
-            #     y_hat = model(input_seqs)
-
             emojis = train_batch_emoji[i]
             input_emojis = get_emoji_definitions(args.dataset, emojis, emoji2def)
             y_hat = model(input_seqs, input_emojis)
@@ -376,30 +288,7 @@ def train(args, device):
             schedule.step()
 
             if (index + 1) % 100 == 0:
-                # pred = torch.max(y_hat.data.cpu(), 1)[1].numpy()
-                # accuracy = accuracy_score(labels.detach().cpu().numpy(), pred)
-                # macro_P = precision_score(labels.detach().cpu().numpy(), pred, average='macro')
-                # macro_R = recall_score(labels.detach().cpu().numpy(), pred, average='macro')
-                # macro_F1 = f1_score(labels.detach().cpu().numpy(), pred, average='macro')
 
-                # if args.dataset == 'chinese':
-                #     dev_loss, dev_acc, dev_macro_P, dev_macro_R, dev_macro_F1 = evaluate(model,
-                #                                                                          dev_batch_count,
-                #                                                                          dev_batch_X,
-                #                                                                          dev_batch_y,
-                #                                                                          device,
-                #                                                                          args,
-                #                                                                          dev_batch_emoji,
-                #                                                                          emoji2def
-                #                                                                          )
-                # else:
-                #     dev_loss, dev_acc, dev_macro_P, dev_macro_R, dev_macro_F1 = evaluate(model,
-                #                                                                          dev_batch_count,
-                #                                                                          dev_batch_X,
-                #                                                                          dev_batch_y,
-                #                                                                          device,
-                #                                                                          args,
-                #                                                                          )
                 dev_loss, dev_acc, dev_macro_P, dev_macro_R, dev_macro_F1 = evaluate(model,
                                                                                      dev_batch_count,
                                                                                      dev_batch_X,
@@ -435,24 +324,6 @@ def train(args, device):
     model = BEMOJI_CLS.BEMOJICLS(args, config, device).to(device)
     model.load_state_dict(torch.load(save_path))
 
-    # if args.dataset == 'chinese':
-    #     test_loss, test_acc, test_macro_P, test_macro_R, test_macro_F1 = evaluate(model,
-    #                                                                               test_batch_count,
-    #                                                                               test_batch_X,
-    #                                                                               test_batch_y,
-    #                                                                               device,
-    #                                                                               args,
-    #                                                                               test_batch_emoji,
-    #                                                                               emoji2def,
-    #                                                                               )
-    # else:
-    #     test_loss, test_acc, test_macro_P, test_macro_R, test_macro_F1 = evaluate(model,
-    #                                                                               test_batch_count,
-    #                                                                               test_batch_X,
-    #                                                                               test_batch_y,
-    #                                                                               device,
-    #                                                                               args,
-    #                                                                               )
     test_loss, test_acc, test_macro_P, test_macro_R, test_macro_F1 = evaluate(model,
                                                                               test_batch_count,
                                                                               test_batch_X,
@@ -470,12 +341,7 @@ def train(args, device):
 warnings.filterwarnings('ignore')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 parser = argparse.ArgumentParser()
-# parser.add_argument('-d',
-#                     '--dataset',
-#                     help='chinese: Chinese dataset, JavaLib: English dataset, '
-#                          'Jira: English dataset, CodeReview: English dataset, '
-#                          'StackOverflow: English dataset',
-#                     default='chinese')
+
 parser.add_argument('-d',
                     '--dataset',
                     help='chinese: Chinese dataset, Github: Github dataset',
