@@ -1,5 +1,5 @@
 """
-BEMOJI 模型实现情感分析
+BEMOJI for downstream tasks without emojis
 :author: Qizhi Li
 """
 import os
@@ -23,13 +23,12 @@ from models import BEMOJI_non_emoji
 
 def get_data_iter(x, y, batch_size):
     """
-    获得一个batch中的数据
+    package batch
     :param x: list
     :param y: list
     :param batch_size: int
     :return batch_X: list
     :return batch_y: list
-    :return batch_emoji: list
     :return batch_count: int
     """
     if len(x) % batch_size != 0:
@@ -58,18 +57,14 @@ def get_data_iter(x, y, batch_size):
 
 
 def evaluate(model, batch_count, batch_X, batch_y, device, args):
-    # def evaluate(model, batch_count, batch_X, batch_y, batch_pos, implicit_lexicon, device):
     """
     Evaluating model on dev and test, and outputting loss, accuracy and macro-F1
     :param model: Object
-    :return: float
-            total loss
-    :return macro_P: float
-            total macro_P
-    :return macro_R: float
-            total macro_R
-    :return macro_F1: float
-            total macro-F1
+    :param batch_count: int
+    :param batch_X: list
+    :param batch_y: list
+    :param device: 'cuda' or 'cpu'
+    :param args: Object
     """
     model.eval()
     loss_total = 0
