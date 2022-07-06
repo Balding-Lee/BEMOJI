@@ -1,5 +1,5 @@
 """
-链接数据
+file paths
 :author: Qizhi Li
 """
 crawl_dir = '../crawl_data/'
