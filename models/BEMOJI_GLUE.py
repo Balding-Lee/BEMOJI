@@ -1,3 +1,7 @@
+"""
+BEMOJI for Glue
+:author: Qizhi Li
+"""
 import os
 import sys
 import pandas as pd
@@ -341,10 +345,6 @@ class BEMOJICLS(nn.Module):
                                                               padding='max_length',
                                                               truncation='longest_first',
                                                               return_tensors='pt').to(self.device)
-
-        # context_ids = torch.tensor(context_tokens['input_ids']).to(self.device)
-        # context_att_mask = torch.tensor(context_tokens['attention_mask']).to(self.device)
-        # context_token_type_ids = torch.tensor(context_tokens['token_type_ids']).to(self.device)
 
         if self.args.dataset == 'STS-B':
             # shape: [batch_size, embedding_size]
