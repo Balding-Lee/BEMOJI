@@ -1,5 +1,5 @@
 """
-DeepMoji 做文本分类
+DeepMoji for downstream tasks
 :author: Qizhi Li
 """
 import argparse
@@ -25,13 +25,10 @@ from models import DeepMoji
 
 def load_data(file_path):
     """
-    加载数据
+    load data
     :param file_path: str
-            文件路径
     :return x: list
-            文本数据
     :return y: list
-            真实标签
     """
     csv_data = pd.read_csv(file_path)
 
@@ -43,7 +40,7 @@ def load_data(file_path):
 
 def get_wordset_and_lables(texts):
     """
-    获得词集合以及标签
+    obtaining word set
     :param texts: list
     :return word_set: set
     """
@@ -56,7 +53,7 @@ def get_wordset_and_lables(texts):
 
 def get_all_words_embed(w2v_embed, words_set):
     """
-    获得嵌入层的词向量
+    obtaining word embedding
     :param w2v_embed: Object
     :param words_set: set
     :return embed: FloatTensor
@@ -74,7 +71,7 @@ def get_all_words_embed(w2v_embed, words_set):
         i += 1
         pper.update()
 
-    # '<PAD>' 的向量设置为全0
+    # '<PAD>' embedding is 0
     embed = torch.cat((embed, torch.zeros(1, embed.shape[1])))
 
     return embed
@@ -82,11 +79,12 @@ def get_all_words_embed(w2v_embed, words_set):
 
 def change_sentence_to_ids(args, dataset, word2id):
     """
-    将文本转换为 id
+    convert words in sentence to id
+    :param args: Object
     :param dataset: list
     :param word2id: dict
             {word: id}
-    :return:
+    :return: sentences_ids: list
     """
     if args.mode == 'Weibo':
         sentences_ids = []
@@ -110,12 +108,11 @@ def change_sentence_to_ids(args, dataset, word2id):
 
 def padding_or_truncate(sentences_ids, padding, max_seq_length):
     """
-    填充或者截断
     :param sentences_ids: list
     :param padding: int
             '<PAD>' 的 id
     :param max_seq_length: int
-    :return:
+    :return X: list
     """
     X = []
 
@@ -123,7 +120,7 @@ def padding_or_truncate(sentences_ids, padding, max_seq_length):
         if len(sentence) > max_seq_length:
             X.append(sentence[: max_seq_length])
         else:
-            pt = sentence.copy()  # 需要拷贝一下, 不然会影响到原本的数据
+            pt = sentence.copy()
             pt.extend([padding] * (max_seq_length - len(sentence)))
             X.append(pt)
 
@@ -132,7 +129,8 @@ def padding_or_truncate(sentences_ids, padding, max_seq_length):
 
 def get_data_iter(args, X, y, word2id, padding, config, data_mode):
     """
-    获得 DataLoader
+    package batch
+    :param args: Object
     :param X: list
     :param y: list
     :param word2id: dict
@@ -171,6 +169,12 @@ def evaluate(model, data_iter, device):
             total loss
     :return acc: float
             total accuracy
+    :return macro_P: float
+            total macro P
+    :return macro_R: float
+            total macro R
+    :return macro_F1: float
+            total macro F1
     """
     model.eval()
     loss_total = 0
@@ -198,7 +202,6 @@ def evaluate(model, data_iter, device):
 
 
 def train(device):
-    # from_path = os.path.join(fp.pre_train_parameters, 'deepmoji.bin')
     save_path = os.path.join(fp.model_parameters, 'deepmoji.bin')
 
     if args.mode == 'Weibo':
