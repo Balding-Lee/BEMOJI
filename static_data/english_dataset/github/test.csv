@@ -1,0 +1,278 @@
+data,emoji,label
+"think someone accidentally released 1.0.2 on npm, current stable is 1.0.1.",👍,1
+"@enishoca ok, v1.0.1 just published. @mwittig your node chi is much stronger than mine ",😎,1
+beautiful. have left some comments ,💁,1
+that is good. ,💕,1
+"note to myself github is not able to correctly parse ""until we have fixed"" ",😒,0
+"@ehelms i'll have look, thanks! ",👏,1
+## pull request checklist [x] all tests pass. demo project builds and runs. [x] have resolved any merge conflicts. [x] have followed the [coding and reviewed the [contributing confirmation  #### this fixes issue #2 ## what's in this pull request? /reference/,💪,1
+"in case anyone finds this issue through searching/browsing and also prefers to use vs2010, for now i'm maintaining branch [here](https that compiles on vs2010. hopefully i'll be able to keep it as minimal changeset ",😄,1
+"sorry, we couldn't transition your pr **we attempted to merge pull request #17264 with head sha 9ac620102f17e71f47352bb355662be5b74e7ad2, but received the following message _invalid request. for 'links/1/schema', ""{\""commit_message\"" \""\"", \""sha\"" \""9ac620102f17e71f47352bb355662be5b74e7ad2\""}"" is not an object or null._** **check that the head sha and pull request number are correct and that the pull request is mergeable.** [more info](http //localhost",🙊,0
+thanks for the pr ,😘,1
+whoops was basing this off of and really old version of gulp-util. looks like it's still in the lib. this can prob be reverted ,😣,0
+"funny, actually [reported this gem-man issue](https in the past.  fixed it now and sent pull request (attached to that same issue).",😤,1
+"thank you, wanted to give relay2 try and was blocked by that error after switched /code/ by the way congratulation to the team for this alpha release 🎉 am eager to make it work, thanks ",✌,1
+"@arn0d **very very sorry**, have not free time to finish this pr, feel free to close or create new pr. ",😭,0
+"in python 3.5, pip 8.1.2 and certain unicode-aware locales/environments, pip install from the git repo fails with this /code/ the reason seem to be using unicode dashes and single quotes on the readme /code/ instead of /code/ ). while it seems to be possible to work around it by playing with locale/lc_ctype environment variables during pip install, think it's worth it to just remove the fancy symbols ",😅,0
+cant seem to reproduce it on the vagrant vm. heisenbug ... ,😒,0
+cool! i'll see if can adapt it for the people thing and report back... ...and then it can be... ...automatic for the people... ,🎶,1
+"@phinze sorry to be nag... we're about to start project at work that is intended to make use of this provider to help our applications configure rundeck as an admin tool. if it doesn't get merged into terraform then we can certainly build it as local plugin, but i'd like to figure out whether we should just build this plugin from my terraform branch (if this is likely to get merged eventually) or whether should spin it up in separate repo and maintain it there on an ongoing basis. i'm happy to go either way, but the uncertainty is making me anxious. ",😁,1
+"oh... sorry. thought this was the repository for whatsie. i've just realised it's the one for mfd 🙃 this should work in whatsie. am working on messenger for desktop 2, which will have this feature too (and many more). no eta for now. sorry again, i'm very active working on whatsie and when got the email didn't even look.",😑,0
+sorry for the delay @szepeviktor wanted to finish up things in this repo before catching up in this section. usually get distracted easily and jump on tangent when see something new.  /reference/,😜,0
+"agree with you that we should add test first and then refactor but the problem here was that it was not possible that the /code/ (https fails, so it was not possible to test the fail case. and also didn't like getting an exception in case that the project doesn't exist. so, was not refactoring really as wanted to change the functionality of the function little bit. ",😣,0
+"that's weird indeed.... was able to replicate it, but still don't know why it happens. searched the ace editor's documentation and couldn't find anything, and the default /code/ for code controls lets the data go in completely untouched! ",😕,0
+"never even got to 6.0.6-dev, eh? straight on to 6.0.6! ",😉,1
+"thank you ie  and it looks like the cleanest ""fix"" specifying no cache headers for ajax requests won't work, because kibana isn't setting /code/ header for ajax calls. aargh!",😠,0
+tests run much slower now btw ,😔,0
+"@diygod i'm so sorry to tell you this, but in fact, if @diygod say ""sometime"", that's means never. ",😞,0
+"by adding the following code, i'm able to bypass this error. **however**, it only works if /code/ if /code/ or /code/ or whatever, it doesn't. have to kill the box and recreate it every time (which is very inconvenient since am making chef cookbook ). /code/",😫,0
+@tleen thanks ,❤,1
+"sorry, still does not work. copied the unicode character  into the title of blog and some random greek letters plus into its text. preview worked fine, but got an error when trying to save it /reference/",♡,0
+bless your soul... ,🙏,1
+"you're right, it's not breaking change. you're an hour ahead of me, but still more awake than am. ",😫,1
+isn't this duplicate of #6682 ,😘,1
+@spicyj concur it's tad beyond the beginner level ,😅,0
+feel stupid now.  thanks. ,😂,1
+confirmed the warning is no longer thrown on /code/ on /code/ if undefined or null are explicitly passed the warning is thrown while in develop mode but not in prod  did notice that ember is still throwing deprecation warning on the /code/ call due to missing an options hash. but this is deprecated through ember so there's no rush. thanks again for the fix!,✨,1
+" thanks lot, big help!",✋,1
+"hi andreynikiforov thanks for the contribution  this seems like fine thing to enable, but you should be aware that the gradle action's behaviors may assume ""plain"" android project right, and do things you don't expect or want. we'd love to hear how it works for you ",🎧,1
+"what is with debian specifically?  was trying to use names that would be meaningful in generic way e.g. just pulled [this](http off the _interweb_ thingy and found page 14... have mentioned debian as typical linux distribution as am user of that one and am (now) aware that they have an interest in this project (as they include it in their distro). as such, having standardised configurable names for the paths that might need tweaking to accommodate different distros' interpretation of the [fhs {filesystem hierarchy standard}](http repeat __this is not something specifically about debian__ but it is about linux distributions generally and trying to make one aspect of configuring the build process more like other applications to make it easier for them to include our application in their products.",😖,0
+wait but where do go for help ,😓,0
+"as of this release, apollo client will check results before writing them to the store and print warning if there's mismatch between query and result shape. huge thanks to @cesarsolorzano who helped with this pr! ️ ",💪,1
+"oh, tested the link on github and it was working  my bad",😣,0
+damn it. they dont support stuff properly and now this. idiots  do you know which line of code exactly causes the issue? may be we can try to modify that or open bug report on that library,😠,0
+"hi, thanks for your comments. the way in which is done is absolutely intentional. the reason is sometimes, the aps are configured on channel ""auto"". there are more and more access points configured in that way. with that configuration, the channel of an ap may change. if you save the results of an initial scan and then you start to perform different attacks or actions, the channel of the ap could be changed while you proceed if you take some time doing your action, so the way to avoid that problem is forcing to scan each time before an attack. it doesn't take so much time and save lot of errors, believe me!  anyway, thanks for your suggestion.",😋,1
+"thank you for your interest in contributing to autofixture. ftr, i'm currently travelling, and have only limited to time to evaluate pull requests. in due time, i'll work through my backlog, but it may take weeks  ",😳,1
+to me,💀,0
+"surprisingly, might have forgotten to test it with just https (maybe was too 💤 )... it worked...!!!!  here are the tests for all the scenarios... thanks lot! http /code/ https /code/ no protocol /code/",😋,1
+"i'm having spot of bother  can someone please help me? ![](http //i.imgur.com/fsegqmr.png) in my flow definition file have the following code /code/ i'm trying to express (no pun intended) that /code/ ](https exports function that returns an instance of /code/ _kindof_ did that... ![](http //i.imgur.com/owmecng.png) ... but would expect flow to complain that the /code/ and /code/ functions (seen in the first screenshot) are _not_ part of the /code/ class. moreover, when actually _do_ declare function on the /code/ class, flow doesn't seem to recognize it from within my source files. for example, if were to define method called /code/ could pass /code/ or /code/ or _anything_ (or _nothing_) to /code/ and flow wouldn't mind 😱 i'm obviously misunderstanding something here. can someone please help me? thanks.",😫,0
+"hi thanks for your feature request. indeed we were thinking about adding regex support, but there was no need for us. if you would like to open pull request i'm more than happy to review and merge ",😍,1
+"nice one, will get new release with that included out later today ",👌,1
+"thanks chief! appreciate you filing this bug.  this is known issue, most well described in #2784. so, **we'll automatically close this as duplicate**. _however_, if you believe your bug is different than the cases described there, please comment here with ""necessarily-wide-alpaca"" and i'll reopen this bug. 🤖 beep beep boop.",👏,1
+"nice work!  it's really coming along. one thing we may want to clear up in this pr or in an immediate follow up is that the currentuser id doesn't change back to the original user id after exiting the mode. as is, think it's good to 🚢 as an outstanding wip.",✨,1
+"hey, sorry to go on about this but found something that is pretty relevant to your project, relating to cocoapods and distributing framework. was experimenting with firebase (https //www.firebase.com/) api over the weekend and integrated their client library as cocoapod into my test project. couldn't help but notice their cocoapod podspec is literally just reference to their .framework file, bundled into zip and placed on cdn. their podspec is here the ""vendored_frameworks"" entry points to the name of their framework, and the framework location is specified using the ""source"" entry and points to their cdn theoretically you could use their podspec as template for your own? this is the last i'll mention of this, promise ",😂,0
+@danscan sorry it took so long  just released 0.6.1 with an update to babel6 enjoy!,😞,0
+but can't say completely understand the criteria for determining what exactly to put in this project.clj,🙈,0
+thanks  you can now use the new /code/ version in your /code/,👌,1
+https //minecraftpocket-servers.com this is why hate noobs ,😒,0
+hmm... seems like the fix from #67 isn't working in travis. ,😕,0
+the map is really sexy guys! you did an **absolutely great job** on that! ,😍,1
+"@omaralbeik @macmedan @mding5692 @andreaantonioni shame on you all. no one noticed the typo in **""an elegant messges library for ios""**? ",😂,0
+"hey guys, thank you for submitting this and expressing your concerns about this issue! speaking for myself, understand where you are coming from, and agree we could do better. unfortunately, this pr does not meet our requirements for an acceptable solution to the problem. please head over to #13420 for the background and contribute your ideas. thanks again!  ",💜,1
+"hey alex, this is bruno from js-montreal.org just wanted to say, like this website. we've been working on re-design and using github for attendance members etc is something that i've had in my list of requirements for while. anyways, great job. we  ruby as well.",♥,1
+the commit aba01f81e5044a529e7b4a59dc47f4d1c714a1a5 (job results [309](https failed the code audit.,🙅,0
+"don't know  had something like 10 builds in row fail this afternoon due to 1. selenium not starting 2. could not write /code/ 3. one time feature test case just failed, so the ancient enemy guess",😠,0
+"awesome, thanks for the fast fix!! 🎉 ",✨,1
+"thanks bunch   for fixing this bug! your fix looks good to me and we should be able to merge this right way, once the test have passed. great job.  _btw we're going to refactor the way we currently handle the json data while proceeding with the create modal implementation._",💜,1
+"this pr changes the badge images to svg, since  shiny!",✨,1
+"apparently it was not correct.  grrr it can't be that hard to get travis work... i'll try tomorrow again. if someone has an idea, feel free to post here. last error message from travis /code/",😠,0
+grep yields no more /code/ silliness. ,😪,0
+test success eaa73eaf109c647609c3f2dbf2ef3d6dcfa8c0a2 try-community-linux-x86 try-community-mac try-community-linux-x86_64 try-community-emscripten try-community-ios try-community-win-x86 try-community-android-armv6,😎,1
+"yeah, fucked this one up, so i'm gonna take the liberty to unfuck it ",😏,0
+"hi, and thanks for the contribution. let's get back to what we've discussed today on irc  it is unclear to me, why not just provide validator function. consider the following /code/ and an appropriate validator fun /code/ on side-note, don't get why /code/ wraps everything with list, so bare /code/ won't really see this as proplist. this is the first problem i've got with this. another one is that you don't consider an empty list as valid proplist, therefore your client cannot fall back to any defaults. confetti is meant to be used with several providers at once. assume that system consists of different applications, also different configuration areas that can co-exist separately even within one application. let me give you an example of this your http server can be configured with url routes, debug levels and request throttling rules. one shouldn't be forced to keep these in one configuration file, especially when throttling rules are updated frequently and the routing rules don't really change during the application lifecycle. therefore many config files, and many providers. erlang has no fear of spawning processes, right? and that brings us to your cache module. 1. key /code/ in /code/ **will** interfere",✌,1
+we have eslint/eslint#3226 now. waiting for fix. ,😩,0
+hahahah dbatimespanpretty!,😂,1
+bugfixes seem fine. please consider the comments as suggestions  lgtm!,😁,1
+"already tried using the desktop duplication api from the following sample https if you look at my previous post, you can see screenshot took using the sample which isn't rendered correctly so it's no good. ",😔,0
+"thanks for the bug report. so on ie the button's pixel too low, on chrome pixel too high.  i'll see what can be done about it.",😖,1
+test failed [status-atomicjenkins](https,💔,0
+it works! ,♥,1
+hope it's ok to upload these examples of other search engines  so we can get an idea of the different designs. ask is the only one with live clock. ![search](https,😁,1
+"yes, maybe that'd be heavy for states (not sure i'm for it) but, definitely, that would be *very* useful for breakpoints as tooltip  ",💯,1
+"oh, i've seen it's flawed again! ",😫,0
+"@athal7 i'm more gun shy of react. it felt like dejavu from when did angularjs. some issues that had with angular was that there was no convention. this made it too easy for one developer to have their own style even down to where they store files vs another dev. i've one project with ~100 angular files and some of them 900 lines long. this was ""rockstar"" angular dev. test suite tests, failures. was fairly unwilling to touch the angular code or volunteer for it. also spent significant time learning and doing angular. never felt like was making progress. just wasn't wrapping my head around it. even after year of usage. this seems to be the type of projects end up on when its angular. the convention is the big thing to me. this means anyone who's getting started with js is enforced to use convention and best practices. ember also comes with linter and omg  it so so much. having worked on big projects where bikeshedding on code style can get slightly out of hand, love how linters can help minimize it. haven't been in the ember world for too long tbh. i'm not an active user, but",❤,0
+"hey buddy, told you to merge it!  sent from my megaphone /reference/",😘,1
+this can break with every patch version /code/ i’m thinking we should randomize build names in every release now that people are relying on it. and beginners reading your article *will* rely on it because they don’t understand the dangers as well as you do. and we’re back to javascript fatigue where every update is dangerous. ,😞,0
+thanks  /reference/,🙏,1
+because responsive is . css must be lightweight. no framework. only few media queries.,♥,1
+"oh, got it.. totally forgot about /code/ after that, everything shines!  i'm newbie to laravel, sorry.. thanks for the help and tips about organizing classes and binding ioc, surely i'll check that. perguntarei sim.. parabéns pelos packages, estão me salvando várias horas de trabalho. muito obrigado.. keep up the good work!",😑,1
+"comment by __gretac__, created on 2014-02-21t07 29 57z everything works beautifully! really cool ",✌,1
+"glad you like it  i'm busy the next few days, but have note to circle back to this issue. if you find the time, it would help me to attach screenshot of this workflow in action. thanks for contributing 🔥",😎,1
+"@cmslewis it works on chrome and safari but it's broken on firefox. on firefox, right-clicking also scrolls to the bottom of the page instantly ",😭,0
+"on december 15, normally use this package, today it does not work. it took me several hours to find solution /code/ rename to /code/ it's awesome   ",😔,0
+lack of english proficiency sucks ,😬,0
+looking at the /code/ file is pleasure now (which certainly wasn't the case before).,👏,1
+review by runrevmark ok 75c77cc072791b8217028da546e1496ca3acbb4d,💙,1
+that sounds great  case closed.,🙌,1
+"hahaha to naman, jk lang naman eh ",😘,1
+this looks ready to merge (once green)  ,😓,0
+thanks @griffinsauce 🏼,🙏,1
+@magicalbanana neither does /code/ nor /code/ work. @soliah /code/ no difference if wrap /code/ in /code/ or include escapes. ,😭,0
+wow  ... anyone we can nag/bug about adding an options to packagist to prevent non-master branches from being built? lol,😣,0
+review by livecodepanos ok 3e88abd3aab381093358c532a508accd4f991a43,💙,1
+thanks for this one @adambiggs ... i'm testing it out today to include it in our next release ,🙌,1
+"oh snap, i'm going to redo my prs to marc with proper tab formatting. thanks zeno! ",✋,1
+"this log was collected w/in 15 minutes of an _initial_ attempt of updating cmav, just few minutes after receiving notification saying it couldn't be updated. sent the log, disconnected ag, retried it updated immediately. should send log once it starts working while ag is active, for baseline?  how does this look different than logs from #597? also, #705's been marked /code/ w/o much explanation.…",😖,0
+yesssssssssssssssss. it works perfectly. ,😘,1
+"so guess we have then somebody who is volunteering if you know how to do it, thanks ",😋,1
+don't know yet ,😞,0
+would suggest you ask those questions on stackoverflow ,😘,1
+testing patch series with 29f0f5e3685f5f1b443fb7a07b151be5d1dde52a as its head. bot [**failed**  ](https tizen common/builds/496),💔,0
+"okay, in that case looks like we're good ",👊,1
+just added this bdef2a6785febe676849e20828a2f844c7a8e32b what do you think? really love this pr ,✨,1
+must have replace domains in extensions updating system in place better boot issues that need to be fixed #105 #103 #93 #75 #88 would be nice to have have some form of express clustering gilbert's back in action ,💪,1
+fixes some bugs that crept into the last pr ,😠,0
+can't find it ,😔,0
+closing since this issue hasn’t seen lot of activity. sorry about that ,😣,0
+[core/git/2.10.0/20160914215433](https has been built and uploaded to the depot. ,💖,1
+no worries ,😊,1
+"yeah, just tried but can't.  @saschb2b to the rescue! 🚨",😅,0
+"what version of symfony are you using i'm trying to reproduce the bug, but it does not work ",😣,0
+"for the time being it looks good enough for me (albeit the documents isn't in the mets namespace, but that's feature, not bug..., presume ",😑,1
+"so there's good news and bad news.  the good news is that everyone that needs to sign cla (the pull request submitter and all commit authors) have done so. everything is all good there.  the bad news is that it appears that one or more commits were authored by someone other than the pull request submitter. we need to confirm that they're okay with their commits being contributed to this project. please have them confirm that here in the pull request. *note to project maintainer this is terminal state, meaning the /code/ commit status will not change from this state. it's up to you to confirm consent of the commit author(s) and merge this pull request when appropriate.* /html/",😕,0
+have implemented the [publish.webmaker.org api](https using it. see this [pr](https for the knex implementation. will add the bookshelf stuff in following pr.,🙌,1
+most of these edits have been staged for inclusion in version 1.0. thanks again to @nicoleslaw for her awesome work here! 💻 ,💪,1
+this pr is now documentation update only no spec changes. ready to merge ,👍,1
+it was an em dash before  could not figure out what was wrong with /code/ fixes the issue reported,😫,0
+"it did solve my simplified example, but when tested in on the real code it still fails . so here is the full code that use /code/ this shows an error on the line that calls /code/ saying /code/ tested with /code/",😒,0
+"one more thing can you switch this pr to user-menu branch? all of the new account stuff is there, and master is live site tests (no new header). thank you, andrew! 🏼",🙌,1
+hahahaha; was actually looking at the blueprint (can't get over how pretty it is every time have to use one). sooooooo; which ones are missing? ,😳,1
+approved!  [![approved with,😋,1
+awesome thank you. sorry about that ,💕,1
+"fixes also adds proper /code/ host style, since people are using it, and as we know, /code/ is lie. thanks for the /code/ suggestion! ",😍,1
+"thanks to both of you. so indeed @andy-hanson, tslint-eslint-rules caused some problems, but only on linux systems. the real solution was downgrading to tslint@4.5.1 @mmckenziedev to my surprise it enabled further rules which am really thankful for! didn't realize that tslint-react was not working proberly ",😅,0
+wonderful tip! thanks! ,🙌,1
+"@daviddavis great work! it works just as expected  there are few minor warts we can probably iron out easily, left some comments inline, let me know your thoughts about them please. thanks again!",👏,1
+"ugh, one of those bugs.. ",😒,0
+"i'm coming around on this. maybe have it clearly labeled ""use at your own risk ",💀,0
+"great!  🎉  think we're testing /code/ now and in pure sense of unit testing, it would be probably nicer to reflect that fact in the tests. however, looking at the current code, think what you did (attaching the tests to /code/ was the best approach at the moment since testing just /code/ couldn't be done in so straightforward way. think we would need to refactor of some of the existing code first. like it the way you did it  ""now there's test to ensure it doesn't break"" exactly! and it's also easier now to claim that it is supported and that it works correctly  ""hopefully followed the semantic release"" looks good to me!  i'll drop some other comments to the pr, but they are only nitpicks, everything looks really great. thank you! regarding external file refs, think it's okay to support it in gavel, but we really need to test that it will interpret only valid json schema files, not files like /code/ (would disclose sensitive data), /code/ (can eat all memory), etc. people run dredd on their cis, we need to prevent any vulnerabilities. would you mind adding tests for this? when referencing",💕,1
+"your latest changes are applied onto this pr thanks for that  i'll look at those failing tests, and putting together some additional tests for the github api.",💖,1
+we're **so _excited_** that you've joined the team!  you've already done [_so_ to help the whole team/community learn and grow! ️ _really_ looking forward the [daydream nightmare improvements you're working on!  we'd be _delighted_ to give you pair of qc35's so you can focus (_even_) better.    noisy tube journeys are drag.  7h/week is lot to spend in stressful noise!!  stoked you'll have better commute...  will order them today (_after the demo_). ✅ are you working from /code/ tomorrow? ,🎧,1
+"excellent work tonight. we've been in touch, so i'll just write some stuff and things here to discuss what has been done and needs to be done.",🙏,1
+it passed ,😍,1
+"ah yes, think this should work ",😊,1
+@michaeltunnell thank you for your excellent explanation which gives the other devs and myself something to discuss and do further testing on. thank you thank you thank you thank you thank you.... ,👏,1
+maybe even cover those with some /code/ and /code/ know... i'm bit pushy ,😉,0
+"removed all dependencies that where not used by the stub solutions or demanded by the test suites, but the process was far from automatic.  /reference/",😫,0
+"@kappuccino really appreciate your feedback! i'm setting up tabs (kinda like browser tabs) to quickly switch between different queries, being able to select from history/stored queries. add new query will be part of that, so that's going to be tackled. agree with you on the headers. it would be ideal if we have project level headers that always apply to each query that gets executed as well as query level headers that merge on the project level ones. first, i'll probably add project level headers to quicken the release. query headers then, can easily be added on the next run. thanks for helping out. ",👌,1
+"sorry didn't see this earlier.   do not like. even ignoring the layering violation created by having debugexceptions care about how to insert log tags, this is still [differently] mangling log messages on the assumption that newline == new-log-entry. think we should do something closer to the rejection there is still valid, but also applies to this current pr. istm taggedlogging really needs to attempt to infer whether the base logger supports newlines embedded in log entries if it does, it should behave as it did before if it does not (read is writing to file or pipe), then it should always split on newlines, as does.",😔,0
+"ok, i've made some progress and i'm going to finish with the rest languages tomorrow. it took more time than expected ",😒,0
+"in the future, please add /code/ to any commits that involve changing the documentation, to avoid running the entire rails test suite.",💙,1
+"bo worries! i'm quite busy myself atm, but this week i'll try to release couple things  please share your thoughts on formatting and code style, so we could decide on this pr.",😪,1
+"hi @josesimoes, i'm nanoframework bot. thank you for your contribution! everything seems to be in order. human will be reviewing it shortly. ",😉,1
+"long time no see ;) sorry for the delay! sadly, am quite busy right now. but am keen to see this feature added. any chance you could try it and submit pr? 😀 ",💜,1
+"thanks for the heads-up about the release @spraints!  if this were not windows-only utility, would have just looked for /code/ page, which presumably would have been in sync with the release. for windows, i'm not sure what the best practice is for bundling the docs. know that /code/ branch docs can get out of sync between releases, so it's totally understandable that that's the case. once realized that was the case, did in fact look at the /code/ docs directly as you suggested.",👍,1
+"okay, awesome. thanks lot. that was quick. so might drop the nemo.driver.takescreenshot method again ",👍,1
+/code/ has been released. please run /code/ and confirm the fix for us! ,👍,1
+thats very true  /html/,😄,1
+@jfcote thanks for the contribution    left you some comments. would also suggest you to add shell script or batch file to generate petstore sample for this new generator. (or can do it later for you after this pr is merged),👏,1
+"### thank you for your rails submission, vdnguyen3012!  everything looks good with the format of your submission. we'll be reviewing your submission soon!",😁,1
+um that would be amazing  if could replace with something upstream thanks for responding so quickly!,♡,1
+be still my beating heart.....it's beautiful,💯,1
+thanks  ,💜,1
+"this was truly silly mistake of both me and well @oscar-rodrigues too, since we both didn't realize we are talking about different projects. didn't want to mess with project configurations because though @oscar-rodrigues had done that already, when in fact he had done it for portophone not gamult. so, of course you didn't have the files was going for  anyway, solved and closing.",😅,0
+"ah, thought i'd left more context here than just the bare description. this requires the rewrite of the in-editor test discovery, which is not going to be an overnight thing, and which haven't yet started  (the gory details the runner is currently doing test discovery and comparing class and method names to decide what to run. if method isn't listed, but is discovered, it might be because you don't want to run it, or it might be due to an xunit1 /code/ attribute. the runner doesn't have enough context to know, so it errs on the side of caution and runs it. this means we run all methods in class, even if they're not required. when rewriting the in-editor discovery, xunit will find each class and method, and give me an object that can serialise to the runner so that the runner doesn't have to do discovery any more. this should improve speed and accuracy of what's run. at least, that's the plan) on the bright side, i'll be starting it this week ",😢,0
+cool this looks good. appreciate you updating those. i'm gunna merge it in ,👊,1
+sorry guys haven't had much time recently but i'll get much better webpack build in there as soon as have few hours ,😓,0
+"@odnairy i'd be happy to have this feature in alcatraz, would you have time to address the points we discussed few months ago? namely renaming /code/ to /code/ checking the image data to identify gifs instead of relying on the extension, as you proposed. and also rebasing on top of master so this can be merged easily if you can't or don't want to for any reason, let me know, and i'll take over  thank you for your work so far ",🙌,1
+@matheuss thanks  couldn't review my own code ,😂,0
+"do wonder, why no one did this before ",😒,0
+"thought we have fixed this issue before the merge hypest the change set looks good. originally, we wanted to avoid calling /code/ if we could avoid it, but that might have been wrong call if this came up again. so, let's none since this makes sure it goes away for good.",👊,1
+"ok, have to fix the pie bug. have to think smart way to not ship different binaries in the same package. putting both pie and not-pie executables inside csploit will double it's size. will work on it in the next week, have to study physics now ",😔,0
+"congrats on finally getting this going fox, really looking forward to it    /reference/",💀,1
+hope for releasing next version and available from rubygems.org soon for all of knife solo users ️,☺,1
+the issue is solved ,😌,1
+thought colour blindness for vox was quality idea ,👌,1
+"@colinbull is my new hero! gave the code (very) quick look and added /code/ to dependencies file (private version of [amazingant/fparsecscript][1]) to test with. looks like /code/ is being passed /code/ for its auth parameter [here][2] still though, so no magic for me just yet. edit forgot don't have /code/ branch on that repository, and keep copying that line from here into my dependencies file when testing; added /code/ on there. [1] https [2] https",😍,1
+thanks for the note! and thanks for the publish- that helped us. ,👏,1
+"@poiru great job with this!  have been meaning to revisit this and the patch that @thesbros put together. in the next few weeks, we'll be addressing this too so i'll be able to report back then",😄,1
+keep at it bro. you'll come good! ,👊,1
+thank you!,👏,1
+looks good to me! ,😴,1
+"this is *awesome*--i just had one small nitpick, the comment made inline. thanks for the contribution, and sorry it took so long to review!  ",💖,1
+manual tests look good. tested the following for /code/ and /code/ errors warnings syntax errors configuration errors (recoverable by stylelint and errors in the file structure) missing configuration deprecations in the configuration so from my perspective this is ready to go (unless you have review remarks which am happy to fix). 🎉 am also happy to support any upcoming problems with this checker ,😌,1
+anwarali364 tracking for github flow create branch add commits open pull request add additional commits merge when  🚢 none,👍,1
+aaand it's done! thanks so much for claiming this issue and making quick work of it @hugomd! ,✨,1
+test success bd1e0279a1eed3e80cb9ce1946288a6bf70caad6 try-linux-x86 try-win-x86 try-ios try-android-armv6 try-linux-x86_64 try-mac,😎,1
+"aw yeah, works great!  (sorry for not responding earlier.)",👏,1
+"the /code/ business is definitely little  but if it works as short-term work-around, then ",😫,0
+parse  and use everything before it on the website in the bio.,♥,1
+"added the info in the readme, don't know why i've seen this before ",😞,0
+i've merged this pr. thanks for the great contribution! ,😊,1
+@aekeus ah ok- thanks for the clarification  very nice!,😄,1
+rewrote my commit to keep mimetypes module and puts deprecation warning if someone use it. democracy won ,😤,0
+occurred again! ,💀,0
+"ooh, merging before travis has look at it? living dangerously",🔫,0
+"thanks, guys thank you for submitting module to the perl ecosystem! if adding new module please review the following check boxes and check the appropriate boxes by going to the preview tab and checking them interactively or alternatively replacing the space in the checkboxes with an x. your work is appreciated and every module helps make the perl ecosystem bigger and better place  **agree** to the usage of the meta file as listed have license field listed in my meta file that is one of https //spdx.org/licenses my license is not one of those found on spdx.org but **do** have license field. in this case make sure you have license url listed under support. [see this **don't** have license field. yes, understand this is **not recommended**.",♥,1
+"unfortunately, @tfili found this because the camera is clipping terrain in certain situations ",😈,0
+"@kiarafrobles https this is my site source, you could try to build it. in fact, am also confused this question, sorry. ",😢,0
+"️ 💚 💛   💓 this is cool improvement! freaking out with an exception for invalid options is surprising to users, indeed. (ps /code/ works on my machine, though. if misspell it, say /code/ get the exception and backtrace output.) would you like to further before merging this? kernel#abort can be used to exit-with-failure-and-print-to-stderr in one go /code/ and to print both messages and then leave the program /code/",💯,1
+"pff, guys you forgot to update same field in /code/ table accordingly  --- p.s. @nett check your gh profile and your git config they don't match... told you past years ",😈,1
+pretty close to me but didn't have timeout problem https @zcbenz any hint is welcome. i'm taring my hair at the moment. ,😭,0
+"sorry, we couldn't transition your pr **your base branch is /code/ the base branch for this pr should have been /code/ .** [more info](http //localhost",🙊,0
+"just added few comments, but this looks very good ",💪,1
+yes that is unfortunate. one would hope they would only dispose when the tab is closed but no. to rub the salt in the wound-the atom ungit plugin works so well ,😔,0
+cannot reproduce this  /code/,😔,0
+@sindresorhus thanks for including the style ,😊,1
+"### reproduction on v1.0.37 sadly still the same behavior after upgrading have task on higher position on the board, filter it out in some way, and ordering the tasks (that **are** still visible) below it (the higher one filtered from the view) is not as expected.  (see my previous post for [a step-by-step reproduction scenario](https",😩,0
+but am able to send gif images as documents ,😞,0
+"thanks for that @adamv that works brilliantly.  going back to @jacknagel suggestion for using /code/ when use /code/ tried even /code/ get the following error /code/  but if leave the install method as /code/ everything gets installed, the executables and the man page in the correct place.  whats your advice",😤,1
+"ugh, more version conflicts. this overly strict versioning is killing me ",😐,0
+"whoops, thanks! blame github's weak issue search for my oversight ",😏,1
+"thanks! seems am on the right trail after all. is there version of stella's stocking up for download somewhere so could check out the stay frosty startfield myself? if this matches both stella and stella 5, then there's got to be some aspect of horizontal movement that the new core gets right and the old one doesn't --- most likely related to the hblank phase in which the starfield effect is triggered, @thrust26 crap, thought got the contrast right this time  it is fine on our tv, but that's composite mod on samsung lcd and not crt, so this may be misleading. think i'll build toggle into the next test rom for choosing between two different grid colors. @sa666666 yes, your funky tia look to be basically phase with an extra pixel after the wide ones and no supression of the next regular pixel. i'll build more flexible testcase that can switch between missiles and balls of different widths these days and put it up on aa --- am very curious what different types of tias are out there as far as this phenomenon is concerned.",😏,1
+perfect! i'll merge it today and release new version with the fix. any chance you would also like to look into how to make custom linter rule for this?  that would help us lot in making sure we don't reintroduce this mistake!,😬,1
+nice work on all those tests  _think_ there is rule that you shouldn't break your previous tests when writing more code (see test 2).,💖,1
+"~~but what the heck, this project is so low-traffic, having the pr do double-duty isn't such big deal. )~~ edit actually, found this problem /code/ erroneously tries to apply default acls to files. the deep recursion code should cache permissions lists with and without the /code/ acls. for each filespec returned in /code/ it should test if the filespec is directory or file, and apply the appropriate cached permission list accordingly. default acls are an important tool for policy enforcement in some environments, this use case must be supported for the pull request to be accepted. test should be written to validate this use case. here's how was able to reproduce the error. used vagrant environment, thus the use of the /code/ user. /code/ this is the error captured from the output ... error execution of '/usr/bin/setfacl -n -m default user rw- /tmp/testfile/a' returned setfacl /tmp/testfile/a only directories can have default acls error change from group ---,group vagrant r-x,mask r-x,other ---,user rwx to user rwx,group ---,mask r-x,other ---,group vagrant r-x,default user rw-,default group ---,default  rwx,default other ---,default group vagrant rw- failed execution of '/usr/bin/setfacl -n -m default user rw- /tmp/testfile/a' returned setfacl /tmp/testfile/a only directories can have default acls",😷,0
+"ah yes, they made these stupid appearing-on-mouse-hover scrollbars. another shit from gnome devs. found out that in synaptic can't click on the last list item because once move the mouse there, horizontal scrollbar appears over the item... ",😠,0
+awesome. thanks. (my first django-patch! have to get it over the line... ),😣,1
+"yeah, clearly it does now ",😈,1
+"hey @troya2  just spoke with some other developers about this, and the consensus was that subclassing the psc is *not very good idea*. i'd highly recommend investigating other strategies with coredata (like custom store), or potentially other database solutions altogether. ",😅,0
+thank you again! ,👏,1
+"wow good catch!  yeah it looks like /code/ bug...please update this pr with the issue! in case that's ""wontfix"" from /code/ it would be still useful to have pointer to that in comment ",💯,1
+"i've not put my contact group config inside issue, so yes it's normal  my ""admins"" contact group is one by default /code/",😋,1
+"hello. tried, but not working. /code/ delegate create resource /code/ in this instance /code/ but /code/ **not** delegate create resource for /code/ resource handler /code/ with two arguments. ",😔,0
+the commit 0bca65f0d6b8b1ec05fe1790199413404ab14b45 (job results [1600](https failed the code audit or documentation test.,🙅,0
+"could use the  unicode... if we really wanted to go all out!  but ya, the seperator is what have checked in at the moment.",♥,1
+cool ,😈,1
+must have fixed it locally forgot to commit! sorry guys . thanks for the bug fix ,😬,1
+"how's that gem update coming?  not trying to be pest, but we're about to start using sidekiq and sidekiq-status for the first time and it'd be cool to have this web interface available.",😋,1
+"it works. huzzah! and thanks for the quick replies and being so helpful, @joshuaclayton.",✨,1
+"i'm wondering if it could be good idea to allow the installation of kubeless/kubeless-controller directly from the ui just opening the discussion, to see what it involves ",🙌,1
+"😵 llvm properly supports and emits pe/coff in big-obj format where more than 2^15 sections are allowed but mingw's /code/ and /code/ don't. but they don't tell you about it, they just silently fail  the number of emojis in this comment should give you an indication of how feel about this. ",😡,0
+thank you for your swift submission!  everything looks good with the format of your submission. we'll be reviewing your submission soon!,😋,1
+looks better ,😜,1
+"oh dear, was looking at the diff wrong.  mornings suck. +1.",😞,0
+"@clausimu let us know if you're activley waiting for this to be merged. we're lazy. _that whcih can be done now, can be done tomorrow._ ",😴,0
+the commit fd89014e41b3a4708d6060b32fc21168fb532290 (job results [158](https failed the code audit.,🙅,0
+it seems to stop on 031 [031/360] every time  something wrong with svtplay-dl or tv3?,😠,0
+"btw, just gave you super powers on this repo! ",💪,1
+"omg. how dumb am  picked the one service had with no dependencies to examine. rest assured, the original issue really *is* an issue. ",😫,0
+"lol, what timing! and it looks like we dodged another bullet. -) thanks, @citruspi! ️",☺,1
+love those filenames! ,😍,1
+(oh and  points for adding it to the test),💯,1
+shame on me...  i'm compiling with clang now and i'll provide more details about how i've compiled pcl.,😷,0
+"poked around with this last week, but now can't reproduce it ",😫,0
+"sorry still didn't get the point in the issue by just reading  the problem is ""if library author ship .ts in npm package, ts-loader cannot compile it in node_modules"". is this right?",😞,0
+"could you give me few days? i'd love to go through their ruleset, as they seem pretty similar to my suggested ones. only issue have depending on somebody else's linter is that any changes made by them might not be deemed necessary in pb and might cause issues later on ",😒,0
+sorry that confused you with to less information. thats my autostart.sh /code/ when just run /code/ got totaly different issue  /code/ guess an conflict with the [hyperion addon](https and the issue https,🙊,0
+"now that have worked with maven for little bit... have to say, it is  worth using. already had to add dependencies and it works like champ! notes it creates ""target"" folder where it stores the compiled code. if the app is having trouble finding file (when you add functionality), you might need to add it to the pom.xml if it is not in the default locations. directions are in the readme. once someone else gets it up and working, lets merge this!",💯,1
+"hi, downloaded the latest version of headphones to check if this got patched in yet, it seems like it didn't. for the record, am using the windows binary made by henryford, don't know if that would cause any problems. output below... debug  thread-13 \headphones\ffmpeg\bin\ffmpeg.exe\ffmpeg -i ""d \d ownloads\sabnzbd\complete\music\taylor.swift.red.deluxe.edition.2cd.flac.2012-ts xd.a73cecde-0923-40ad-aad1-e8c24ba6c3d2\206-taylor_swift-state_of_grace_(acousti c_version).flac"" -aq -y -ac -vn ""d \downloads\sabnzbd\complete\music\taylor. swift.red.deluxe.edition.2cd.flac.2012-tsxd.a73cecde-0923-40ad-aad1-e8c24ba6c3d2 \temp\206-taylor_swift-state_of_grace_(acoustic_version).mp3"" the directory name is invalid. thanks again!",🎧,1
+"+1 would like to use this with xelatex and beamer, but same error  pdflatex works find though! thanks",😭,0
+"okay, i'm sure paddyoh is super excited to see all my feedback  i'm now done with my first pass",😈,1
+💚  💛  thanks for persevering on this.. it got stuck for much longer than it should've.,❤,1
+hi @rogermexico can you provide the output or /code/ how about try to /code/ however suggest to use the /code/ install method it's also easier to debug ,👌,1
+but  that we won't have these tests back for while,😢,0
+having it automated would even be better ,😏,1
+released in ,👍,1
+"currently, the example 'with-typescript' is using an ugly 'concurrently' to run asynchronously with next.js. tried to modify the webpack loaders but no hope, next.js required files be in filesystem/.next folder, not memory. now can't use my lovely coffeescript for api construction. have to launch external project for that.",😖,0
+"thanks alot, got it. ",👍,1
+"the current ""no data"" color for the paths is very close to the lightest color in the color scale. i'll probably have to put in custom hook to override that color in d3plus ",😞,0
+"doesn't even want to take the number of brackets chose on d7000, it just takes one... this is weird ",😕,0
+test failure 72901f2aaee6e6f50d717338aa33f2ef2a1cded7 try-community-armv6-android-api8 try-community-armv6-android-api9 try-community-js-emscripten-sdk1.35 try-community-universal-ios-iphoneos10.3 try-community-universal-ios-iphonesimulator10.3 try-community-universal-mac-macosx10.6 try-community-universal-mac-macosx10.9 try-community-x86-linux-debian7 try-community-x86-linux-debian8 try-community-x86_64-linux-debian7 try-community-x86_64-linux-debian8 try-community-x86-win32 try-community-x86_64-win32,😞,0
+"sorry, really can't find those missing russian names ",😭,0
+review by runrevmark ok 09fabd7928681c945214c34bdf8e4cbb9e5625ee,💙,1
+i'd like to make my insults /code/,👍,0
+😱 just noticed that the generated traffic is exceeding the free traffic on aws massively. basically just ran the for couple of days and it already passed the available amount of network io for the entire month.  switched back to heroku for now. will take further looks in the next days.,😭,0
+"if was truly wise, i'd be able to answer that question ",😢,0
+@rulych thanks for the comment! we have an issue setup for more framework/library support—like react. will consider this feature very soon. if you'd like to help be part of that—let me know. ,🙌,1
+wo! 'try' and 'r+' in same command? none are you crazy human?!  ,💀,0
+"in the worst developer response ever 'works on my machine'  (linux, anaconda py35, source installed from v1.5.3 tag) /code/ ![test_dates](https wonder if this is some how windows specific? attn @kojoley",😞,0
+"thanks @corymsmith for all effort you are putting on this  wonder if we could help you somehow, since this is going to introduce the initial support for android, think we could have special branch under this repository for this feature, so everybody interested on this could try it, watch the progress, create pull request, etc.. what do you guys think about it",👏,1
+adds test for image work create method. brings test coverage up to ,💯,1
+somethings amiss here ,😖,0
+would contact directly. maybe he will add you as contributer to this repo or the organisation good luck ,😘,1
+"thanks , and thanks for the bugs. if you find any more feel free to open more gh issues   ",💜,1
+"platform mac 10.10.3 owncloud version 1.8.1 (build 2335) turned cloudflare back on for my owncloud subdomain and tried to reproduce the error. however, it appears that the problem has been fixed. am able to successfully connect, and have confirmed that the client is using the cloudflare certificate. ![owncloud_cloudflare](https am not sure what changed that caused it to start working, but i'm glad it's working anyway ",😌,1
+"thanks! ️  (just to make it clear; you'll be ""major"" contributor next time you send pr on this file, or if you send something around paragraphs in.)",💜,1
+"…with things that need to be done on the web client end of things before it can be considered ""publically usable"". (i.e., by people who are not we  kpop) also, tradeoffs that were made for the sake of getting it working (mostly)™, and what is useful to refactor.",♥,1
+hi! it seems there're three key-iv pairs. we don't have to figure out the algorithm which pair is chosen but to try all these through. but the problem now is none of them matches known plain-cipher-text pair. i'm wondering whether they have changed constants used in seed. ,😒,0
