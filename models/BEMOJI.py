@@ -1,5 +1,5 @@
 """
-BEMOJI 模型
+BEMOJI for pre-training
 :author: Qizhi Li
 """
 import torch
@@ -24,11 +24,11 @@ class FineTuneConfig:
         """
         MLM 的设置
         :param lm_probability:
-        :param mlm_probability: 被mask的token总数
-        :param special_tokens_mask: 特殊token
-        :param prob_replace_mask: 被替换成[MASK]的token比率
-        :param prob_replace_rand: 被随机替换成其他token比率
-        :param prob_keep_ori: 保留原token的比率
+        :param mlm_probability: the total number of masked tokens
+        :param special_tokens_mask: specital token
+        :param prob_replace_mask: the ratio of token being replaced by [MASK]
+        :param prob_replace_rand: the ratio of token being replaced by other token
+        :param prob_keep_ori: the ratio of keeping the original token
         """
         assert sum([prob_replace_mask, prob_replace_rand, prob_keep_ori]) == 1, ValueError(
             "Sum of the probs must equal to 1.")
@@ -205,11 +205,11 @@ class BEMOJI(nn.Module):
     def forward(self, input_seqs, input_emoji_defs, input_prompt):
         """
         :param input_seqs: list
-                不带有 prompt 的序列
+                The sequence without prompt
         :param input_emoji_defs: list
-                emoji 的定义
+                emoji description sequence
         :param input_prompt: list
-                带有 prompt 的序列
+                The sequence with prompt
         """
         if self.args.mode == 'fine_tune_chinese':
             context_tokens = self.tokenizer.batch_encode_plus(input_seqs,
