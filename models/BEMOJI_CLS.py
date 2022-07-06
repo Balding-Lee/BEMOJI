@@ -1,5 +1,5 @@
 """
-BEMOJI 模型实现 CLS
+BEMOJI for fine-tuning
 :author: Qizhi Li
 """
 import os
@@ -43,8 +43,6 @@ class Config:
                 parameter_path, 'BEMOJI_github_context_ep_{}.bin'.format(pre_train_epoch))
             self.emoji_parameters_path = os.path.join(
                 parameter_path, 'BEMOJI_github_emoji_ep_{}.bin'.format(pre_train_epoch))
-            # self.emoji_parameters_path = os.path.join(
-            #     parameter_path, 'BEMOJI_github_emoji_ep_{}.bin'.format(fine_tune_epoch))
 
 
 class BEMOJICLS(nn.Module):
@@ -157,40 +155,3 @@ class BEMOJICLS(nn.Module):
 
         return output
 
-        # if self.args.dataset == 'chinese':
-        #     context_cls = self.context_bert(context_ids, attention_mask=context_att_mask).pooler_output
-        #
-        #     emojis_cls = []
-        #     # input_emojis: shape: (batch, emojis_defs)
-        #     # [[def_11], [def_21, def_22], [def_31], ...]
-        #     for emoji_defs in input_emojis:
-        #
-        #         emoji_tokens = self.tokenizer.batch_encode_plus(emoji_defs,
-        #                                                         add_special_tokens=True,
-        #                                                         max_length=self.config.emoji_max_length,
-        #                                                         padding='max_length',
-        #                                                         truncation='longest_first')
-        #         emoji_ids = torch.tensor(emoji_tokens['input_ids']).to(self.device)
-        #         emoji_att_mask = torch.tensor(emoji_tokens['attention_mask']).to(self.device)
-        #         # shape: [num_emojis, embedding_size]
-        #         emoji_cls = self.emoji_bert(emoji_ids, attention_mask=emoji_att_mask).pooler_output
-        #         # emojis_cls.append(self.global_max_1dpool(emoji_cls))
-        #         emojis_cls.append(emoji_cls.max(dim=0).values.unsqueeze(dim=0))
-        #
-        #     emojis_cls = torch.cat(emojis_cls, 0)
-        #
-        #     fusion_hidden_state = self.activate(
-        #         self.context_dense(context_cls) + self.emoji_dense(emojis_cls) + self.bias)
-        #
-        #     output = self.softmax(self.fc(fusion_hidden_state))
-        #
-        #     return output
-        #
-        # else:
-        #     context_cls = self.context_bert(context_ids, attention_mask=context_att_mask).pooler_output
-        #     fusion_hidden_state = self.activate(
-        #         self.context_dense(context_cls) + self.bias)
-        #
-        #     output = self.softmax(self.fc(fusion_hidden_state))
-        #
-        #     return output
