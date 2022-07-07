@@ -221,13 +221,11 @@ parser.add_argument('-m',
                          'and only chinese dataset has XLNet_mid')
 parser.add_argument('-d',
                     '--dataset',
-                    help='chinese: Chinese dataset, JavaLib: English dataset, '
-                         'Jira: English dataset, CodeReview: English dataset, '
-                         'StackOverflow: English dataset, Github: Github dataset',
+                    help='chinese: Chinese dataset, Github: Github dataset',
                     default='chinese')
 parser.add_argument('-p',
                     '--pretrain_epoch',
-                    help='0: w/o fine tune, 1-10: fine tune parameters',
+                    help='0: w/o pre-trained parameters',
                     type=int,
                     default=0)
 parser.add_argument('-f',
