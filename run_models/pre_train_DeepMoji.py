@@ -33,7 +33,7 @@ def load_data(args, emoji2def):
     :return emojis: list
     """
     texts, emojis = [], []
-    if args.mode == 'fine_tune_chinese':
+    if args.mode == 'pre_train_chinese':
 
         with open(fp.pre_train_chinese_data, 'r', encoding='utf-8') as f:
             content = f.readlines()
@@ -70,7 +70,7 @@ def get_wordset_and_lables(args, emojis):
     :return labels: list
     """
 
-    if args.mode == 'fine_tune_chinese':
+    if args.mode == 'pre_train_chinese':
         emoji2id = utils.read_file('json', os.path.join(fp.deepmoji_vocab, 'emoji2id.json'))
         word2id = utils.read_file('json', os.path.join(fp.deepmoji_vocab, 'word2id.json'))
     else:
@@ -123,7 +123,7 @@ def change_sentence_to_ids(args, dataset, word2id):
     """
     sentences_ids = []
     for sentence in dataset:
-        if args.mode == 'fine_tune_chinese':
+        if args.mode == 'pre_train_chinese':
             words = list(sentence)
         else:
             words = sentence.split(' ')
@@ -166,7 +166,7 @@ def get_data_iter(args, texts, labels, config):
     :return train_iter: DataLoader
     :return dev_iter: DataLoader
     """
-    if args.mode == 'fine_tune_chinese':
+    if args.mode == 'pre_train_chinese':
         word2id = utils.read_file('json', os.path.join(fp.deepmoji_vocab, 'word2id.json'))
     else:
         word2id = utils.read_file('json', os.path.join(fp.deepmoji_vocab, 'github_word2id.json'))
@@ -230,14 +230,14 @@ def evaluate(model, data_iter, device):
 
 def train(args, device):
 
-    if args.mode == 'fine_tune_chinese':
+    if args.mode == 'pre_train_chinese':
         emoji2def = pd.read_csv(fp.weibo_emoji2def)
         emoji_defs = {}
         for _, line in emoji2def.iterrows():
             emoji_defs[line['微博表情']] = line['表情定义']
 
         w2v_embed = utils.read_file('pkl', fp.chinese_word2vec)
-    elif args.mode == 'fine_tune_english':
+    elif args.mode == 'pre_train_english':
         emoji2def = pd.read_csv(fp.github_emoji2def)
         emoji_defs = {}
         for _, line in emoji2def.iterrows():
@@ -299,7 +299,7 @@ def train(args, device):
                     # torch.save(model.state_dict(), save_path)
                     # torch.save(model.embeddings.state_dict(),
                     #            os.path.join(fp.pre_train_parameters, 'deepmoji_embed.bin'))
-                    if args.mode == 'fine_tune_chinese':
+                    if args.mode == 'pre_train_chinese':
                         torch.save(model.lstm_0.state_dict(),
                                    os.path.join(fp.pre_train_parameters, 'deepmoji_lstm0.bin'))
                         torch.save(model.lstm_1.state_dict(),
@@ -334,9 +334,9 @@ warnings.filterwarnings('ignore')
 parser = argparse.ArgumentParser()
 parser.add_argument('-m',
                     '--mode',
-                    help='fine_tune_english: fine tune English dataset,'
-                         'fine_tune_chinese: fine tune Chinese dataset',
-                    default='fine_tune_chinese')
+                    help='pre_train_english: fine tune English dataset,'
+                         'pre_train_chinese: fine tune Chinese dataset',
+                    default='pre_train_chinese')
 args = parser.parse_args()
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
