@@ -262,7 +262,7 @@ parser.add_argument('-d',
 parser.add_argument('-p',
                     '--pre_train_epoch',
                     type=int,
-                    help='0-10, 0: w/o fine tune',
+                    help='0-10, 0: w/o pre-trained parameters',
                     default=0)
 args = parser.parse_args()
 
